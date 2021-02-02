@@ -1,6 +1,8 @@
 #include <iostream>
+#include "task1.h"
 
 int main()
 {
-	std::cout << "Hello World!";
+	int arr[5];
+	std::cout << maxIndex(arr, 5);
 }

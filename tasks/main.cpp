@@ -3,6 +3,5 @@
 
 int main()
 {
-	int arr[5];
-	std::cout << maxIndex(arr, 5);
+	
 }

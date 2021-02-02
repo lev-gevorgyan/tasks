@@ -21,3 +21,25 @@ int maxIndex(int* arr, const int length)
 	}
 	return result;
 }
+
+
+int minIndex(int* arr, const int length)
+{
+	for (auto ix = 0; ix < length; ++ix)
+	{
+		std::cout << "Enter element " << ix + 1 << " : ";
+		std::cin >> arr[ix];
+	}
+
+	auto min = arr[0];
+	auto result = 0;
+	for (auto ix = 0; ix < length; ++ix)
+	{
+		if (arr[ix] < min)
+		{
+			min = arr[ix];
+			result = ix;
+		}
+	}
+	return result;
+}

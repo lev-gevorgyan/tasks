@@ -1,7 +1,7 @@
 #include <iostream>
 #include "task1.h"
 
-//??????? ???????????? ??????????????
+//Auxiliary functions
 void fillArr(int* arr, const int length)
 {
 	for (auto ix = 0; ix < length; ++ix)
@@ -36,8 +36,8 @@ void outMatrix(int** arr, const int length)
 			std::cout << arr[i][j] << std::endl;
 }
 
-//????????? ??????????? ??????????????
-int maxIndex(int* arr, const int length)
+//Decisions
+int MaxIndex(int* arr, const int length)
 {
 	fillArr(arr, length);
 
@@ -54,7 +54,7 @@ int maxIndex(int* arr, const int length)
 	return result;
 }
 
-int minIndex(int* arr, const int length)
+int MinIndex(int* arr, const int length)
 {
 	fillArr(arr, length);
 
@@ -71,7 +71,7 @@ int minIndex(int* arr, const int length)
 	return result;
 }
 
-int addMaxToMin(int* arr, const int length)
+int AddMaxToMin(int* arr, const int length)
 {
 	fillArr(arr, length);
 
@@ -95,7 +95,7 @@ int addMaxToMin(int* arr, const int length)
 	return max + min;
 }
 
-int* reverseArr(int* arr, const int length)
+int* ReverseArr(int* arr, const int length)
 {
 	fillArr(arr, length);
 
@@ -108,7 +108,7 @@ int* reverseArr(int* arr, const int length)
 	return arr;
 }
 
-int* multArr(int* arr1, int* arr2, const int length)
+int* MultArr(int* arr1, int* arr2, const int length)
 {
 	fillArr(arr1, length);
 	fillArr(arr2, length);
@@ -120,7 +120,7 @@ int* multArr(int* arr1, int* arr2, const int length)
 	return arr1;
 }
 
-int* sumArr(int* arr1, int* arr2, const int length)
+int* SumArr(int* arr1, int* arr2, const int length)
 {
 	fillArr(arr1, length);
 	fillArr(arr2, length);
@@ -132,7 +132,7 @@ int* sumArr(int* arr1, int* arr2, const int length)
 	return arr1;
 }
 
-void printGLineOfMatrix(int** arr, const int length)
+void PrintGLineOfMatrix(int** arr, const int length)
 {
 	fillMatrix(arr, length);
 
@@ -141,7 +141,7 @@ void printGLineOfMatrix(int** arr, const int length)
 		std::cout << arr[ix][ix] << std::endl;
 }
 
-void printAuxLineOfMatrix(int** arr, const int length)
+void PrintAuxLineOfMatrix(int** arr, const int length)
 {
 	fillMatrix(arr, length);
 
@@ -150,11 +150,148 @@ void printAuxLineOfMatrix(int** arr, const int length)
 		std::cout << arr[length - 1 - ix][ix] << std::endl;
 }
 
-void printSumOfLinesOfMatrix(int** arr, const int length)
+void PrintSumOfLinesOfMatrix(int** arr, const int length)
 {
 	fillMatrix(arr, length);
 
 	int* result = new int[length];
 	for (auto ix = 0; ix < length; ++ix)
 		std::cout << arr[ix][ix] + arr[length - 1 - ix][ix] << std::endl;
+}
+
+void ChangeLinesOfMatrix(int** arr, const int length)
+{
+	fillMatrix(arr, length);
+
+	for (auto ix = 0; ix < length; ++ix)
+	{
+		auto tmp = arr[ix][ix];
+		arr[ix][ix] = arr[ix][length - 1 - ix];
+		arr[ix][length - 1 - ix] = tmp;
+	}
+}
+
+void PrintOddNumbersOfMatrix(int** arr, const int length)
+{
+	fillMatrix(arr, length);
+
+	for (auto i = 0; i < length; ++i)
+		for (auto j = 0; j < length; ++j)
+			if (arr[i][j] % 2) std::cout << arr[i][j] << std::endl;
+}
+
+void PrintCoupleNumbersOfMatrix(int** arr, const int length)
+{
+	fillMatrix(arr, length);
+
+	for (auto i = 0; i < length; ++i)
+		for (auto j = 0; j < length; ++j)
+			if (!(arr[i][j] % 2)) std::cout << arr[i][j] << std::endl;
+}
+
+void MatrixToArr(int* arr, int** mat, const int matLength)
+{
+	fillMatrix(mat, matLength);
+
+	for (auto i = 0; i < matLength; ++i)
+		for (auto j = 0; j < matLength; ++j)
+			arr[i * matLength + j] = mat[i][j];
+	for (auto ix = 0; ix < matLength * matLength; ++ix)
+		std::cout << arr[ix] << std::endl;
+}
+
+char MostRepeatedChar(std::string str)
+{
+	const unsigned int LENGTH = str.length();
+	int max = 0;
+	int count = 0;
+	char result = ' ';
+
+	for (auto i = 0; i < LENGTH; ++i)
+	{
+		for (auto j = i; j < LENGTH; ++j)
+		{
+			if (str[i] == str[j]) ++count;
+		}
+		if (count > max)
+		{
+			max = count;
+			result = str[i];
+		}
+		count = 0;
+	}
+
+	return result;
+}
+
+std::string LongestSubRepeatingStr(std::string str)
+{
+	const unsigned int LENGTH = str.length();
+	int max = 0;
+	int count = 0;
+	std::string result;
+	char tmp = ' ';
+
+	for (auto i = 0; i < LENGTH-1; ++i)
+	{
+		while (str[i] == str[i + 1])
+		{
+			++count;
+			++i;
+		}
+		if (count > max)
+		{
+			max = count;
+			tmp = str[i];
+		}
+		count = 0;
+	}
+
+	for (auto ix = 0; ix <= max; ++ix) 
+		result += tmp;
+
+	return result;
+}
+
+int AvgMulSumArr(int* arr, int length)
+{
+	fillArr(arr, length);
+
+	auto sum = 0;
+	auto mul = 1;
+
+	for (auto ix = 0; ix < length; ++ix)
+	{
+		sum += arr[ix];
+		mul *= arr[ix];
+	}
+
+	return (sum + mul) / 2;
+}
+
+void LongestSubStr(std::string str)
+{
+	const unsigned int LENGTH = str.length();
+	std::string maxStr;
+	std::string tmpStr;
+
+	for (auto ix = 0; ix < LENGTH; ++ix)
+	{
+		if (str[ix] != ' ')
+		{
+			tmpStr += str[ix];
+		}
+		else
+		{
+			tmpStr = "";
+		}
+
+		if (tmpStr.length() > maxStr.length())
+		{
+			maxStr = tmpStr;
+		}
+	}
+
+	
+	std::cout << maxStr;
 }

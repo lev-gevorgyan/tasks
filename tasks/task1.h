@@ -1,18 +1,26 @@
 #pragma once
 
-//??????? ???????????
+//Auxuliary functions
 void fillArr(int*, const int);
 void outArr(int*, const int);
 void fillMatrix(int**, const int);
 void outMatrix(int**, const int);
 
-//????????? ??????????
-int maxIndex(int*, const int);
-int minIndex(int*, const int);
-int addMaxToMin(int*, const int);
-int* reverseArr(int*, const int);
-int* multArr(int*, int*, const int);
-int* sumArr(int*, int*, const int);
-void printGLineOfMatrix(int**, const int);
-void printAuxLineOfMatrix(int**, const int);
-void printSumOfLinesOfMatrix(int**, const int);
+//Decisions
+int MaxIndex(int*, const int);
+int MinIndex(int*, const int);
+int AddMaxToMin(int*, const int);
+int* ReverseArr(int*, const int);
+int* MultArr(int*, int*, const int);
+int* SumArr(int*, int*, const int);
+void PrintGLineOfMatrix(int**, const int);
+void PrintAuxLineOfMatrix(int**, const int);
+void PrintSumOfLinesOfMatrix(int**, const int);
+void ChangeLinesOfMatrix(int**, const int);
+void PrintOddNumbersOfMatrix(int**, const int);
+void PrintCoupleNumbersOfMatrix(int**, const int);
+void MatrixToArr(int*, int**, const int);
+char MostRepeatedChar(std::string);
+std::string LongestSubRepeatingStr(std::string);
+int AvgMulSumArr(int*, int);
+void LongestSubStr(std::string);

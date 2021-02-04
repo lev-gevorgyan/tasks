@@ -231,9 +231,9 @@ std::string LongestSubRepeatingStr(std::string str)
 	std::string result;
 	char tmp = ' ';
 
-	for (auto i = 0; i < LENGTH-1; ++i)
+	for (int i = 0; i < LENGTH-1; ++i)
 	{
-		while (str[i] == str[i + 1])
+		while (str[i] == str[static_cast<std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type>(i) + 1])
 		{
 			++count;
 			++i;

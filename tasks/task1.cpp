@@ -1,5 +1,4 @@
 #include <iostream>
-#include "task1.h"
 
 //Auxiliary functions
 void fillArr(int* arr, const int length)
@@ -292,6 +291,5 @@ void LongestSubStr(std::string str)
 		}
 	}
 
-	
-	std::cout << maxStr;
+	std::cout << maxStr << std::endl;
 }

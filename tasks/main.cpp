@@ -4,6 +4,5 @@
 
 int main()
 {
-	LongestSubStr("barev dzez mardik");
 	// some code
 }
